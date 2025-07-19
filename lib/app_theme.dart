@@ -3,25 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Light Theme Palette from your brief
-  static const Color bgPrimary = Color(0xFFFAFAFA);
-  static const Color bgSecondary = Color(0xFFF2F2F7);
-  static const Color bgElevated = Color(0xFFFFFFFF);
-  static const Color textPrimary = Color(0xFF1C1C1E);
-  static const Color textSecondary = Color(0xFF3A3A3C);
-  static const Color textTertiary = Color(0xFF6E6E73);
-  static const Color textDisabled = Color(0xFFAEAEB2);
+  static const Color bgPrimary = Color(0xFFFFFFFF);
+  static const Color textPrimary = Color(0xFF000000);
+  static const Color textSecondary = Color(0xFF8A8A8E);
   static const Color lightBorder = Color(0xFFEAEAEB);
-  
-  // Functional Colors from your brief
-  static const Color accentGreen = Color(0xFF36C25B);
-  static const Color accentOrange = Color(0xFFFF9F0A);
-  static const Color accentPurple = Color(0xFFAF52DE);
-  static const Color accentRed = Color(0xFFFF3B30);
+  static const Color accentGreen = Color(0xFF4CAF50);
+  static const Color accentBlue = Color(0xFF2196F3);
+  static const Color accentRed = Color(0xFFF44336);
+  static const Color accentOrange = Color(0xFFFF9500);
 
-  // The single, definitive theme getter
   static ThemeData get theme {
-    final baseTextTheme = GoogleFonts.interTextTheme(
+    final baseTextTheme = GoogleFonts.robotoTextTheme(
       ThemeData.light().textTheme.apply(
         bodyColor: textPrimary,
         displayColor: textPrimary,
@@ -32,21 +24,30 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.light,
       scaffoldBackgroundColor: bgPrimary,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: bgPrimary,
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: textPrimary),
+        titleTextStyle: TextStyle(
+          color: textPrimary,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
       colorScheme: const ColorScheme.light(
         primary: accentGreen,
         background: bgPrimary,
-        surface: bgElevated,
+        surface: bgPrimary,
         onBackground: textPrimary,
         onSurface: textPrimary,
         outline: lightBorder,
       ),
       textTheme: baseTextTheme.copyWith(
-        displayLarge: baseTextTheme.displayLarge?.copyWith(fontSize: 48, fontWeight: FontWeight.w700, height: 52 / 48),
-        displayMedium: baseTextTheme.displayMedium?.copyWith(fontSize: 36, fontWeight: FontWeight.w600, height: 40 / 36),
-        headlineMedium: baseTextTheme.headlineMedium?.copyWith(fontSize: 24, fontWeight: FontWeight.w600, height: 28 / 24),
-        bodyLarge: baseTextTheme.bodyLarge?.copyWith(fontSize: 17, height: 22 / 17),
-        bodyMedium: baseTextTheme.bodyMedium?.copyWith(fontSize: 15, height: 20 / 15),
-        bodySmall: baseTextTheme.bodySmall?.copyWith(fontSize: 12, fontWeight: FontWeight.w500, height: 16 / 12),
+        displaySmall: baseTextTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold, fontSize: 32),
+        titleMedium: baseTextTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold, fontSize: 18),
+        bodyMedium: baseTextTheme.bodyMedium?.copyWith(color: textSecondary, fontSize: 14),
+        labelLarge: baseTextTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }
